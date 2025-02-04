@@ -8,7 +8,8 @@ def is_palindrome(line: str):
 
     dq = deque()
     for char in line.lower():
-        dq.append(char)
+        if char.isalpha():
+            dq.append(char)
 
     for _ in range(len(dq) // 2):
         start = dq.popleft()
@@ -18,7 +19,7 @@ def is_palindrome(line: str):
 
     return True
 
-strings = ["радар", "mother", "Anna", "Hello", "AnsSna"]
+strings = ["радар", "mother", " Anna", "Hello", "AnsS na"]
 
 for string in strings:
     print(f"String \"{string}\" is {"" if is_palindrome(string) else "NOT "}a palindrome")
